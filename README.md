@@ -35,7 +35,7 @@ os seguintes métodos:
 - `getQuantidadeDeCombustivel`
  
 - `explorar`: Este recebe um planeta ou uma lista de planetas e retorna uma lista de recursos que 
-conseguiu explorar, quando a nave vai a um planeta, deve ser reduzida a quantidade de combustível
+conseguiu explorar caso tenha finalizado a exploração, quando a nave vai a um planeta, deve ser reduzida a quantidade de combustível
 gasta para chegar até sua posição. Quando não houverem mais planetas a serem explorados, a nave deve 
 retornar a sua posição inicial, esta viagem também afeta sua quantidade de combustível.
 Se não houver combustível para chegar a uma posição, deve ir até a posição que sua quantidade permitir,
@@ -61,12 +61,16 @@ trajetos, a nave deve ir até onde conseguir.
 @Test
 public void deveFicarADerivaQuandoFaltarCombustivelParaIrAteUmPlaneta() {
     int posicaoEsperada = 3;
+    int combustivelEsperado = 0;
     Nave milleniumFalcon = new Nave(9);
     Planeta tatooine = new Planeta(4, new ArrayList<>());
 
-    milleniumFalcon.explorar(tatooine);
+    List<Recurso> recursos = milleniumFalcon.explorar(tatooine);
     int posicaoResultante = milleniumFalcon.getPosicao();
+    int combustivelFinal = milleniumFalcon.getQuantidadeDeCombustivel();
 
+    Assert.assertTrue(recursos.isEmpty());
+    Assert.assertEquals(combustivelEsperado, combustivelFinal);
     Assert.assertEquals(posicaoEsperada, posicaoResultante);
 }
 ```
