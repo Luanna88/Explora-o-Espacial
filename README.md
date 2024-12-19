@@ -61,8 +61,8 @@ trajetos, a nave deve ir até onde conseguir.
 @Test
 public void deveFicarADerivaQuandoFaltarCombustivelParaIrAteUmPlaneta() {
     int posicaoEsperada = 3;
-    int combustivelEsperado = 0;
-    Nave milleniumFalcon = new Nave(9);
+    int combustivelEsperado = 1;
+    Nave milleniumFalcon = new Nave(10);
     Planeta tatooine = new Planeta(4, new ArrayList<>());
 
     List<Recurso> recursos = milleniumFalcon.explorar(tatooine);
