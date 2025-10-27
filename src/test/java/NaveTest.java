@@ -117,4 +117,19 @@ public class NaveTest {
 
         Assert.assertEquals(2, recursos.size());
     }
+    @Test
+    public void deveInicializarNaveComCombustivelEPosicaoInformados() {
+        Nave nave = new Nave(100, 5);
+
+        Assert.assertEquals(100, nave.getQuantidadeDeCombustivel());
+        Assert.assertEquals(5, nave.getPosicao());
+    }
+    @Test
+    public void deveInicializarNaveComValoresZero() {
+        Nave nave = new Nave(0, 0);
+
+        Assert.assertEquals(0, nave.getQuantidadeDeCombustivel());
+        Assert.assertEquals(0, nave.getPosicao());
+    }
+
 }
